@@ -14,34 +14,28 @@ label is not graded.
 ## Posted upstream
 
 **GitHub username**
-
-[Your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comment upstream is identified by this name, and it is
-the only thing that ties it to you. Several students may plan the same
-house issue, so this is what keeps their comments off your score and
-yours off theirs.]
+paolitacute
 
 **Plan comment**
+https://github.com/codepath/pathreview-ai301-fa26-s3/issues/68#issuecomment-6029707140
 
-[Link to the comment where you posted your plan on the issue. Use the comment's own
-permalink. **Then paste the text of that comment underneath the link** — the pasted text is
-what this field is graded on, so copy across what you actually posted.]
+I have successfully reproduced the issue and drafted a fix. 
+
+The problem stems from the regex patterns in `_detect_sections()` being strictly anchored to the start of the line (`^`), which causes them to fail whenever a resume header has leading whitespace or indentation. My plan is to update the regex patterns in `ingestion/parsers/resume_parser.py` to allow optional leading spaces (e.g., `^\s*`). 
+
+I will keep the scope strictly limited to fixing this anchoring behavior and will validate the changes against the three currently failing unit tests in `tests/unit/test_resume_parser.py`. 
+
+I'll proceed with this approach and open a PR shortly! Let me know if you have any questions or prefer a different regex structure.)
 
 ---
 
 ## Your branch
 
 **Branch**
-
-[The name of the branch you built the change on, exactly as it appears in your fork. The
-naming shape is a type prefix, then the issue number, then a short description. **The issue
-number in the branch name must be the number of the issue you claimed** — a name carrying
-any other number does not satisfy this field.]
+fix/68-zero-division-error
 
 **Evidence**
 
-[Your Unit 2 reproduction steps re-run against the built change: the before, then the
-after. Paste both, including the commands you ran and their output.]
 
 ## Eval iterations
 
@@ -50,28 +44,15 @@ fields.
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
 
 **Package analysis**
 
-[Pick one scored package (`pkg-01` through `pkg-20` — the four `calib-` packages are never
-scored). Name it by id, say what your rubric decided and what the gold label said, and
-explain why your rubric read it that way.]
 
 **Check rationale**
 
-[Quote one check from the `rubric.md` you uploaded to `tools/plan-check/`, exactly as it reads now.
-Then say why it reads that way — what you revised to get there, or what you rejected in
-favour of it.]
 
 **Trade-offs**
 
-[Every check gives something up. Any one of these is a complete answer: a package whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
 
 ---
 
