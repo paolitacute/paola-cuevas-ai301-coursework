@@ -1,10 +1,10 @@
 # Unit 4 Pull Request Submission
 
 ## Pull Request Link
-[We will fill this in after opening the PR on GitHub]
+https://github.com/codepath/pathreview-ai301-fa26-s3/pull/214#issue-5841067173
 
 ## Branch Name
-[We will fill this in after setting up the branch]
+fix/68-zero-division-error
 
 ## Eval Run History
 Run 1: 13/20 (Saved directly to eval-run.txt)
