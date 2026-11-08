@@ -20,8 +20,6 @@ is far easier to write down as it happens than to reconstruct in the last weeken
 Contribution Number stays `[1]` unless you make more than one contribution this term; it
 just numbers them.
 
----
-
 ## Toolkit
 
 Every story section below, from Why I Chose This Issue through Pull
@@ -36,7 +34,7 @@ reconstructing them later.
 A Toolkit block looks like this (copy it into each story section and
 fill it there):
 
-```text
+```
 **Toolkit**
 
 - Tool: [which tool did this phase's work, and how you used it]
@@ -44,6 +42,8 @@ fill it there):
 - Difficulties: [what fought you or fell short, or "none met"]
 - What changed: [the patch, revision, or workaround, what you would
   update, or "nothing"]
+
+
 ```
 
 This section also keeps one short dated entry per week of tool work,
@@ -74,57 +74,48 @@ on your real branch, what fought you, what changed because of it.]
 [2-4 sentences: the PR-monitor and your playbook. What it read, what it
 drafted, what you did with the draft.]
 
----
-
 ## Why I Chose This Issue
 
-[1-2 paragraphs in your own words: how you searched, what your scan
-surfaced, what your scout's verdict said, why this issue fits your
-profile, and what you hope to learn. If your scout's verdict on it
-was reject and you chose it anyway, say so here and say why; choosing
-against your own tool silently is what loses points. Close with an
-honest read of the tool itself: where the scout fell short on a real
-wild search and what you changed or would change, or what convinced
-you it held up. **Record the link to your claim comment in this section too.**
-Not claimed yet? Write `claim pending` and today's date where the link goes,
-and add the link the moment your claim lands.]
+I searched the AI301 Issue Selection site using my language and tag filters after my initial automated CLI scans returned highly competitive, brand-new issues and struggled with multi-language filtering. I found the "Translate docs/ to Spanish" issue in the `factreel` repository. When I ran my `issue-scout` to grade it, the verdict was an "accept" because it easily passed all recent activity, maintainer responsiveness, and clear description checks. Although it failed my preferred `matches-stack` check (because it requires Spanish prose translation rather than Python or TypeScript coding), I chose it anyway because the maintainer is exceptionally welcoming to first-timers ("Claim it: comment I'll take this") and explicitly supports AI-assisted work. I hope to use this accessible task to learn the end-to-end open-source contribution workflow—forking, committing, and opening a PR—without the immediate pressure of complex architectural debugging. My claim comment is at: `claim pending 2026-11-08`.
+
+My tool initially fell short during the wild search because GitHub CLI combined multiple `--language` flags with an AND operator, which resulted in almost zero matches for some of my queries. Furthermore, my ranking filters strongly favored brand-new issues, meaning the top results often had competing PRs opened within hours of the scan. I also realized my `matches-stack` check had a typo ("rag and bugs") that skewed its grading. I patched these shortcomings by splitting the language queries, adding a 24-hour age minimum to avoid immediate competition, capping results at two per repository in `search-strategy.md`, and fixing the rubric typo.
 
 **Toolkit**
 
-- Tool: issue-scout (your scout: your search strategy, your rubric),
-  and how you used it
-- What it produced: [the scan and its verdict on this issue, described]
-- Difficulties: [where it fell short, or "none met" if none did]
-- What changed: [what you patched or would update, or "nothing"]
-
----
+* Tool: issue-scout (my search strategy and rubric), run via CLI to grade specific issue URLs from the portal.
+* What it produced: An "accept" verdict with a detailed JSON read-out that highlighted the welcoming contribution policy while accurately flagging the tech stack mismatch (prose vs. code).
+* Difficulties: The initial wild scan struggled with GitHub CLI's AND logic for language flags and surfaced issues that were claimed by lightning-fast PRs within hours.
+* What changed: I split the language queries in `search-strategy.md`, added a minimum issue age of 24 hours, capped per-repo results, and fixed a typo in my rubric's stack check.
 
 ## Understanding the Issue
 
 **Problem Description**
 
-[In your own words, what is broken or missing?]
+The project's documentation is currently missing a Spanish translation. This limits accessibility for Spanish-speaking users who want to understand or contribute to the project. The maintainer wants four specific documentation files translated into Spanish.
 
 **Expected Behavior**
 
-[What should happen?]
+There should be a new `docs/es/` directory containing the Spanish translations of the four specified documentation files. Additionally, the main repository `README.md` should be updated to include links pointing to these new Spanish documentation files.
 
 **Current Behavior**
 
-[What actually happens?]
+The `docs/es/` directory does not exist, there are no translated documentation files, and the main `README.md` only links to the English versions of the documentation.
 
 **Affected Components**
 
-[Which parts of the codebase are involved?]
+* A new `docs/es/` directory and its four new markdown files.
+
+* The root `README.md` file (to add the links).
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+* Tool: issue-scout grading output and manual reading of the GitHub issue.
 
----
+* What it produced: A clear summary of the acceptance criteria ("Done when..." checklist) mapping out exactly which files need to be translated and linked.
+
+* Difficulties: none met; the maintainer provided a very clear, numbered checklist.
+
+* What changed: nothing; the issue is straightforward and well-scoped.
 
 ## Reproduction Process
 
@@ -138,25 +129,30 @@ and how you solved them, or that none came up.]
 **Steps to Reproduce**
 
 1. [Step 1]
+
 2. [Step 2]
+
 3. [Observed result]
 
 **Reproduction Evidence**
 
-- **Commit showing reproduction:** [link to commit in your fork]
-- **Screenshots/logs:** [if applicable]
-- **My findings:** [what you discovered during reproduction; an
+* **Commit showing reproduction:** [link to commit in your fork]
+
+* **Screenshots/logs:** [if applicable]
+
+* **My findings:** [what you discovered during reproduction; an
   honest, evidenced cannot-reproduce that led you to re-pick or ask
   the maintainer belongs here and costs you nothing]
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+* Tool:
 
----
+* What it produced:
+
+* Difficulties:
+
+* What changed:
 
 ## Solution Approach
 
@@ -173,7 +169,9 @@ deliberately NOT changing.]
 **Implementation Plan**
 
 1. [Modify file X to do Y]
+
 2. [Add or change Z]
+
 3. [Update tests]
 
 [Record deviations here as they happen: what changed mid-build and
@@ -181,12 +179,13 @@ why. A recorded deviation is honest work; silent drift is not.]
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+* Tool:
 
----
+* What it produced:
+
+* Difficulties:
+
+* What changed:
 
 ## Testing Strategy
 
@@ -197,12 +196,13 @@ observable named is not a strategy.]
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+* Tool:
 
----
+* What it produced:
+
+* Difficulties:
+
+* What changed:
 
 ## Implementation Notes
 
@@ -219,12 +219,13 @@ built, decisions you made when you made them, wrong turns included.]
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+* Tool:
 
----
+* What it produced:
+
+* Difficulties:
+
+* What changed:
 
 ## Pull Request
 
@@ -235,22 +236,26 @@ adapts into it]
 
 **Maintainer Feedback:**
 
-- [Date]: [feedback received, or "none yet"; silence is a normal
+* [Date]: [feedback received, or "none yet"; silence is a normal
   state and costs you nothing]
-- [Date]: [how you addressed it]
 
-**Status:** [Awaiting review / Iterating / Merged / Closed. The
-status is a fact you record, never a grade: the PR is graded as
-opened.]
+* [Date]: [how you addressed it]
+
+**Status:** 
+
+$$
+Awaiting review / Iterating / Merged / Closed. The status is a fact you record, never a grade: the PR is graded as opened.
+$$
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+* Tool:
 
----
+* What it produced:
+
+* Difficulties:
+
+* What changed:
 
 ## Learnings and Reflections
 
@@ -267,8 +272,6 @@ Toolkit blocks above are full of them.]
 
 [Reflection on your process.]
 
----
-
 ## Resources Used
 
 [What actually helped, not a reading list. List things this story
@@ -276,5 +279,6 @@ already shows you using: the doc you followed to set the environment
 up, the thread that explained the bug, the person who answered you.
 One real entry beats ten plausible ones.]
 
-- [Link to documentation that helped]
-- [Discussion, issue, or post that helped]
+* [Link to documentation that helped]
+
+* [Discussion, issue, or post that helped]
