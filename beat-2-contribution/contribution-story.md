@@ -1,4 +1,4 @@
-# Contribution: [Issue Title]
+# Contribution: Translate docs/ to Spanish
 
 Path: `beat-2-contribution/contribution-story.md`
 
@@ -7,11 +7,10 @@ the repository is not read. **Keep every section header below under its exact na
 format criteria grade exactly that. Your course repo link is the whole submission: no tool
 files and no evidence uploads are part of Assignment 5.
 
-**Contribution Number:** [1]
-**Student:** [Student name]
-**GitHub Username:** [your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comments upstream are identified by this name.]
-**Issue:** [GitHub issue link]
+**Contribution Number:** 1
+**Student:** Paola Cuevas
+**GitHub Username:** paolitacute
+**Issue:** https://github.com/DeadY2J/factreel/issues/16
 **Pull Request:** [GitHub PR link, once opened]
 
 One repository, built across units 5 to 8, telling the whole story of your real
@@ -55,10 +54,9 @@ happened; these entries are the toolkit's own timeline.
 All four entries are graded. Keep every heading below, and fill each
 one in the week it belongs to.
 
-**Unit 5: [one line on the tool work]**
+**Unit 5: Configured issue-scout to scan and grade candidate issues based on my fit profile.**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+I built the scout using queries for my TypeScript and Python stack, alongside ranking filters to avoid highly-commented issues. Initially, the scout fell short because it combined multiple language flags with an AND operator (yielding almost no results), allowed brand new issues that were immediately claimed, and misread a typo in my "matches-stack" rubric check. I updated my strategy file to split the language queries, added a ranking filter to drop issues opened within the last 24 hours, and fixed the typo in my rubric to explicitly list my technologies.
 
 **Unit 6: [one line on the tool work]**
 
