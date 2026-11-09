@@ -11,7 +11,7 @@ files and no evidence uploads are part of Assignment 5.
 **Student:** Paola Cuevas
 **GitHub Username:** paolitacute
 **Issue:** https://github.com/DeadY2J/factreel/issues/16
-**Pull Request:** [GitHub PR link, once opened]
+**Pull Request:** https://github.com/DeadY2J/factreel/pull/17#issue-6277564030
 
 One repository, built across units 5 to 8, telling the whole story of your real
 contribution. Fill it as you work, not at the end — the sections below ask for evidence that
@@ -218,56 +218,39 @@ Updated the "Documentación" section in `README.es.md` to change the paths from 
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when opened]
+**PR Link:** https://github.com/DeadY2J/factreel/pull/17#issue-6277564030
 
-**PR Description:** [what the PR says; much of the content above
-adapts into it]
+**PR Description:** This PR creates the docs/es/ directory, translates the four requested files into Spanish, and updates both READMEs to link to them. Fixes #16. It includes evidence of checking the relative path resolution locally and via GitHub's UI.
 
 **Maintainer Feedback:**
 
-* [Date]: [feedback received, or "none yet"; silence is a normal
-  state and costs you nothing]
+- 2026-11-08: none yet
 
-* [Date]: [how you addressed it]
-
-**Status:** 
-
-$$
-Awaiting review / Iterating / Merged / Closed. The status is a fact you record, never a grade: the PR is graded as opened.
-$$
+**Status:** Awaiting review
 
 **Toolkit**
 
-* Tool:
+- Tool: GitHub Web UI
+- What it produced: The submitted pull request against the main repository.
+- Difficulties: none met
+- What changed: nothing
 
-* What it produced:
-
-* Difficulties:
-
-* What changed:
+---
 
 ## Learnings and Reflections
 
 **Technical Skills Gained**
-
-[What you learned technically, named concretely.]
+I learned how to configure GitHub CLI searches using JSON output and how repeating `--language` flags acts as an AND condition, requiring queries to be split to properly search across different tech stacks.
 
 **Challenges Overcome**
-
-[What was hard and how you solved it; point at the real events, the
-Toolkit blocks above are full of them.]
+My initial scout strategy was beaten by lightning-fast PRs on brand new issues. I overcame this by writing a new ranking filter to drop issues opened within the last 24 hours. I also resolved an issue where a typo in my rubric ("rag and bugs") was misinterpreting my actual tech stack. 
 
 **What I'd Do Differently Next Time**
+I would set stricter repository caps (like the max 2 per repo rule I added later) right from the start to prevent a single small project from flooding my candidate pool.
 
-[Reflection on your process.]
+---
 
 ## Resources Used
 
-[What actually helped, not a reading list. List things this story
-already shows you using: the doc you followed to set the environment
-up, the thread that explained the bug, the person who answered you.
-One real entry beats ten plausible ones.]
-
-* [Link to documentation that helped]
-
-* [Discussion, issue, or post that helped]
+- GitHub CLI `search issues` manual: for understanding how to format `--label`, `--language`, and `--limit` flags in my search strategy.
+- Factreel's CONTRIBUTING.md and Issue #16: for understanding the maintainer's expectations regarding translating one file per PR versus bundling them.
