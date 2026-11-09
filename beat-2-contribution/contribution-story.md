@@ -76,7 +76,7 @@ drafted, what you did with the draft.]
 
 ## Why I Chose This Issue
 
-I searched the AI301 Issue Selection site using my language and tag filters after my initial automated CLI scans returned highly competitive, brand-new issues and struggled with multi-language filtering. I found the "Translate docs/ to Spanish" issue in the `factreel` repository. When I ran my `issue-scout` to grade it, the verdict was an "accept" because it easily passed all recent activity, maintainer responsiveness, and clear description checks. Although it failed my preferred `matches-stack` check (because it requires Spanish prose translation rather than Python or TypeScript coding), I chose it anyway because the maintainer is exceptionally welcoming to first-timers ("Claim it: comment I'll take this") and explicitly supports AI-assisted work. I hope to use this accessible task to learn the end-to-end open-source contribution workflow—forking, committing, and opening a PR—without the immediate pressure of complex architectural debugging. My claim comment is at: `claim pending 2026-11-08`.
+I searched the AI301 Issue Selection site using my language and tag filters after my initial automated CLI scans returned highly competitive, brand-new issues and struggled with multi-language filtering. I found the "Translate docs/ to Spanish" issue in the `factreel` repository. When I ran my `issue-scout` to grade it, the verdict was an "accept" because it easily passed all recent activity, maintainer responsiveness, and clear description checks. Although it failed my preferred `matches-stack` check (because it requires Spanish prose translation rather than Python or TypeScript coding), I chose it anyway because the maintainer is exceptionally welcoming to first-timers ("Claim it: comment I'll take this") and explicitly supports AI-assisted work. I hope to use this accessible task to learn the end-to-end open-source contribution workflow—forking, committing, and opening a PR—without the immediate pressure of complex architectural debugging. My claim comment is at: `https://github.com/DeadY2J/factreel/issues/16#issuecomment-6728512165`.
 
 My tool initially fell short during the wild search because GitHub CLI combined multiple `--language` flags with an AND operator, which resulted in almost zero matches for some of my queries. Furthermore, my ranking filters strongly favored brand-new issues, meaning the top results often had competing PRs opened within hours of the scan. I also realized my `matches-stack` check had a typo ("rag and bugs") that skewed its grading. I patched these shortcomings by splitting the language queries, adding a 24-hour age minimum to avoid immediate competition, capping results at two per repository in `search-strategy.md`, and fixing the rubric typo.
 
@@ -121,10 +121,7 @@ The `docs/es/` directory does not exist, there are no translated documentation f
 
 **Environment Setup**
 
-[What a stranger would need to stand this up: your operating system,
-the relevant versions (language, runtime, package manager, the project
-itself), and how you set the project up. Then the challenges you faced
-and how you solved them, or that none came up.]
+I am running Windows 11 and using Git for version control alongside VS Code as my text editor. Because this issue strictly involves translating markdown documentation into Spanish, no language runtimes, build tools, or package managers were required to stand the project up. I set up the project by forking the repository to my GitHub account and running `git clone https://github.com/paolitacute/factreel.git` in my terminal, followed by `cd factreel` to open the directory. No technical challenges came up during setup since it only required standard local file editing.
 
 **Steps to Reproduce**
 
@@ -189,43 +186,35 @@ why. A recorded deviation is honest work; silent drift is not.]
 
 ## Testing Strategy
 
-[What observable checks prove the fix: your reproduction steps re-run
-against the built change (before and after), and the repo's own test
-suite or checks with the outcome shown. "Tests pass" with nothing
-observable named is not a strategy.]
+To prove this documentation fix works, I will use two observable checks:
+1. **Local Markdown Preview:** Before committing, I will open `README.es.md` and `README.md` using VS Code's built-in Markdown Preview and physically click the new links to verify they resolve correctly to the local `docs/es/` directory files.
+2. **GitHub UI Verification:** After pushing my branch to my fork, I will open the repository on GitHub, navigate to my branch, and click the documentation links in the rendered READMEs to ensure GitHub's markdown parser correctly resolves the relative paths and displays the translated Spanish text without formatting errors.
 
 **Toolkit**
 
-* Tool:
+- Tool: VS Code Markdown Preview
+- What it produced: Local visual verification of markdown link resolution.
+- Difficulties: none met
+- What changed: nothing
 
-* What it produced:
-
-* Difficulties:
-
-* What changed:
+---
 
 ## Implementation Notes
 
-[A running log, added to as you work. Date each entry. What you
-built, decisions you made when you made them, wrong turns included.]
+**2026-11-08**
 
-**[Date]**
+Set up the environment by cloning my fork. Created the `docs/es/` directory. Manually translated the four required files (`configuration.md`, `providers.md`, `youtube.md`, and `scheduling.md`) into Spanish and placed them in the new folder. 
 
-[Entry]
+**2026-11-08**
 
-**[Date]**
-
-[Entry]
+Updated the "Documentación" section in `README.es.md` to change the paths from `docs/` to `docs/es/` and removed the "(en inglés)" tag. Added a corresponding link list to the main English `README.md` pointing to the Spanish versions. Tested the links locally and prepared the commit.
 
 **Toolkit**
 
-* Tool:
-
-* What it produced:
-
-* Difficulties:
-
-* What changed:
+- Tool: VS Code text editor and Git
+- What it produced: Translated markdown files and updated README link paths.
+- Difficulties: Making sure the relative path syntax in the README files correctly pointed to the nested `docs/es/` directory instead of the root `docs/` folder.
+- What changed: Adjusted the hyperlink paths in both READMEs to explicitly include the `es/` subdirectory.
 
 ## Pull Request
 
